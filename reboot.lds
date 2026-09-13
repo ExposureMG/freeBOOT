@@ -1,13 +1,13 @@
 ENTRY(_start)
 SECTIONS
 {
-	. = 0x800000001C000000;
+	. = 0x1C000000;
 	.text : { *(.text) }
 	.data : { *(.data) }
 	.sdata : { *(.sdata) }
 	.rodata : { *(.rodata)}
 
-	. = 0x800000001C080000;
+	. = 0x1C080000;
 
 	bss_start = .;
 	.bss : { *(.bss) }

@@ -8,7 +8,7 @@ dcache_flush:
 	subf %r3, %r5, %r3
 	add %r4, %r4, %r3
 1:
-	dcbst %r0, %r5
+	dcbst 0, %r5
 	addic %r5, %r5, CACHE_SIZE
 	subic. %r4, %r4, CACHE_SIZE
 	bge 1b
@@ -23,7 +23,7 @@ dcache_inv:
 	subf %r3, %r5, %r3
 	add %r4, %r4, %r3
 1:
-	dcbf %r0, %r5
+	dcbf 0, %r5
 	addic %r5, %r5, CACHE_SIZE
 	subic. %r4, %r4, CACHE_SIZE
 	bge 1b
@@ -38,9 +38,9 @@ flush_code:
 	subf %r3, %r5, %r3
 	add %r4, %r4, %r3
 1:
-	dcbst %r0, %r5
+	dcbst 0, %r5
 	sync
-	icbi %r0, %r5
+	icbi 0, %r5
 	addic %r5, %r5, CACHE_SIZE
 	subic. %r4, %r4, CACHE_SIZE
 	bge 1b
